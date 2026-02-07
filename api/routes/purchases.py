@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from ..models import db, Supplier, Purchase, Product
+from models import db, Supplier, Purchase, Product
 from flask_jwt_extended import jwt_required
 
 purchases_bp = Blueprint('purchases', __name__)

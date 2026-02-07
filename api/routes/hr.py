@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from ..models import db, Employee, Attendance, PayrollRecord
+from models import db, Employee, Attendance, PayrollRecord
 from flask_jwt_extended import jwt_required
 from datetime import datetime
 

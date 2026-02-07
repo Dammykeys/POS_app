@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from ..models import db, Sale, SaleItem, Product, Customer
+from models import db, Sale, SaleItem, Product, Customer
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
 sales_bp = Blueprint('sales', __name__)
