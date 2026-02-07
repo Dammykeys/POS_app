@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern POS | ERP System</title>
+    <link rel="stylesheet" href="src/style.css">
+    <!-- Boxicons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Login Overlay -->
+    <div id="login-overlay" class="login-overlay">
+        <div class="login-card">
+            <div class="logo" style="text-align: center; margin-bottom: var(--spacing-lg);">
+                <i class='bx bxs-bolt-circle'></i> OmniPOS
+            </div>
+            <h2 style="margin-bottom: var(--spacing-sm); text-align: center;">Welcome back</h2>
+            <p style="color: var(--text-muted); text-align: center; margin-bottom: var(--spacing-lg);">Enter your
+                credentials to access the ERP</p>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="username" placeholder="Enter username" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="password" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="btn-primary"
+                    style="width: 100%; margin-top: var(--spacing-md); padding: var(--spacing-md);">Login to
+                    Dashboard</button>
+            </form>
+            <p id="login-error"
+                style="color: var(--danger); font-size: 0.875rem; margin-top: var(--spacing-md); text-align: center; display: none;">
+                Invalid credentials. Please try again.</p>
+        </div>
+    </div>
+
+    <div class="app-container" style="display: none;">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class='bx bxs-bolt-circle'></i> OmniPOS
+            </div>
+            <nav class="nav-links">
+                <div class="nav-item">
+                    <a href="#" class="nav-link active" data-view="dashboard">
+                        <i class='bx bxs-dashboard'></i> Dashboard
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link" data-view="inventory">
+                        <i class='bx bxs-package'></i> Inventory
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link" data-view="sales">
+                        <i class='bx bxs-cart'></i> Sales
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link" data-view="purchases">
+                        <i class='bx bxs-truck'></i> Purchases
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link" data-view="finance">
+                        <i class='bx bxs-wallet'></i> Finance
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link" data-view="hrm">
+                        <i class='bx bxs-user-badge'></i> Employees
+                    </a>
+                </div>
+            </nav>
+            <div class="user-profile">
+                <a href="#" class="nav-link">
+                    <i class='bx bx-log-out'></i> Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content">
+            <header class="top-bar">
+                <div class="search-box">
+                    <i class='bx bx-search'></i>
+                    <input type="text" placeholder="Search invoices, products, or customers...">
+                </div>
+                <div class="user-info">
+                    <span id="current-user">Administrator</span>
+                    <i class='bx bxs-user-circle' style="font-size: 2rem; margin-left: var(--spacing-md);"></i>
+                </div>
+            </header>
+
+            <div id="view-container">
+                <!-- Dashboard Content (Default) -->
+                <div class="stats-grid">
+                    <div class="card">
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">Daily Sales</p>
+                        <h2 style="margin: var(--spacing-sm) 0;">$12,450.00</h2>
+                        <span style="color: var(--success); font-size: 0.875rem;"><i class='bx bx-trending-up'></i> +12%
+                            vs yesterday</span>
+                    </div>
+                    <div class="card">
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">Total Orders</p>
+                        <h2 style="margin: var(--spacing-sm) 0;">184</h2>
+                        <span style="color: var(--success); font-size: 0.875rem;"><i class='bx bx-trending-up'></i> +5%
+                            vs yesterday</span>
+                    </div>
+                    <div class="card">
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">New Customers</p>
+                        <h2 style="margin: var(--spacing-sm) 0;">24</h2>
+                        <span style="color: var(--text-muted); font-size: 0.875rem;">Stable</span>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <div
+                        style="padding: var(--spacing-lg); display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="font-weight: 600;">Recent Transactions</h3>
+                        <button
+                            style="background: var(--primary); color: white; border: none; padding: var(--spacing-sm) var(--spacing-md); border-radius: 0.5rem; cursor: pointer;">View
+                            All</button>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Transaction ID</th>
+                                <th>Customer</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#TRX-9821</td>
+                                <td>Alice Johnson</td>
+                                <td>Oct 12, 2026</td>
+                                <td>$450.00</td>
+                                <td><span style="color: var(--success);">Paid</span></td>
+                            </tr>
+                            <tr>
+                                <td>#TRX-9822</td>
+                                <td>Bob Smith</td>
+                                <td>Oct 12, 2026</td>
+                                <td>$1,200.00</td>
+                                <td><span style="color: var(--accent);">Pending</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="src/script.js"></script>
+</body>
+
+</html>
